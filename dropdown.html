@@ -1,0 +1,152 @@
+<Doctype html>
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Freckle+Face" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+		<script src="https://use.fontawesome.com/f1156db02b.js"></script>
+		<style>
+			body{
+				font-family: 'Freckle Face', cursive;
+			} 
+
+			#page-title{
+				text-align: center; 
+				font-size: 60px;
+				animation: multicolored 15s;
+				animation-delay: 0.2;
+				animation-iteration-count: infinite;
+				text-decoration:underline;
+				padding-bottom: 20px;
+			}
+
+			@keyframes multicolored{
+				0%{text-shadow: gray 6px 0.5px;}
+				15%{text-shadow: #0066cc 6px 0.5px;}
+				30%{text-shadow: indianred 6px 0.5px;}
+				45%{text-shadow: #0066cc 6px 0.5px;}
+				75%{text-shadow: #99ff66 6px 0.5px;}
+				100%{text-shadow::#ff9999 6px 0.5px;}
+			}
+
+			#inputs-list{
+				list-style: none;
+				display: flex;
+				justify-content: center;
+
+			}
+			#color-pick{
+				height: 50px;
+				border-radius: 10px;
+				width: 131px;
+				text-align: center;
+				font-family: inherit;
+			}
+
+			#inputs-list li{
+				margin-right: 55px;
+			}
+
+			#inputs-list li input{
+				height: 50px;
+				width: 131px;
+				border-radius: 10px;
+				text-align: center;
+				font-family: inherit;
+				font-size: 16px;
+			}
+			#creator,.dropbtn{
+				font-size: 20px;
+				width: 131px;
+				height: 50px;
+			    border-radius: 10px;
+			    font-family: inherit;
+			}
+			input:focus,input:active, button:focus,button:active{
+				outline: none;
+			}
+
+			.dropdown-content{
+				text-align: center;
+				display: none;
+				margin-top: 5px;
+				width: 125px;
+				border-left-style: solid;
+				border-right-style: solid;
+				border-bottom-style: solid;
+				border-radius: 10px;
+				border-color:gray ;
+				position: absolute;
+			}
+			.dropdown-content .grab-color{
+				margin-top: 2px;
+				height: 30px;
+				margin-bottom:2px;
+			}
+		</style>
+		<script>
+			$(document).ready(function(){
+					$("#myDropdown").hide();
+					$('.grab-color').each(function(){
+
+					let color = $(this).attr("value");
+					$(this).hover(
+						function(){
+							$(this).css("background-color",color);
+							},
+						function(){
+							$(this).css("background","none");
+						}).click(function(){
+							currColor = color;
+						})	
+					});
+				});
+				function dropDown(){
+				$("#myDropdown").show()
+				};
+
+				//DropDown Handlers
+				$(window).click(function(e){
+					if(!e.target.matches(".dropbtn")){
+						$("#myDropdown").hide();
+					}
+				});
+		</script>
+	</head>
+	<body>
+		<h1 id="page-title">Pixel Art Maker<i class="fa fa-paint-brush" aria-hidden="true"></i>
+		</h1>
+		<ul id="inputs-list">
+			<li>
+				<input id="l-action" type="number" name="columns">
+			</li>
+			<li>
+				<input id="w-action" type="number" name="rows">
+			</li>
+			<li>
+				<div class="dropdown">
+				  <button onclick="dropDown()" class="dropbtn">Pick Color</button>
+				  <div id="myDropdown" class="dropdown-content">			
+					 <div class="grab-color" value="BF444C">Awesome Red</div>				
+					 <div class="grab-color" value="4A44BF">Cool Blue</div>				
+					 <div class="grab-color" value="5B5A68">Perfect Gray</div>
+					 <div class="grab-color" value="1D711B">Live Green</div>				
+					 <div class="grab-color" value="E8811A">Almost Orange</div>
+					 <div class="grab-color" value="DCE81A">Pale Yellow	</div>			
+					 <div class="grab-color" value="E81AAD">Not Pink</div>			
+					 <div class="grab-color" value="3D0A8A">Lakers Purple</div>
+				  </div>
+				</div>
+			</li>
+				
+			<li>
+				<button id="creator" onclick="makeGrid()"> Create </button>
+			</li>
+		</ul>
+		<div id="grid-container">
+			<table>
+				<tbody id="grid">
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

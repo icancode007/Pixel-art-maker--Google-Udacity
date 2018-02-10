@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Pixel Art Maker</title>
+		<link href="https://fonts.googleapis.com/css?family=Freckle+Face" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+		<script src="https://use.fontawesome.com/f1156db02b.js"></script>
+		<script src="design.js"></script>
+	</head>
+	<body>
+		<h1 id="page-title">Pixel Art Maker<span class="animated"><i class="fa fa-paint-brush" aria-hidden="true"></i></span>
+		</h1>
+		<ul id="inputs-list">
+			<li>
+				<button id="creator" onclick="makeGrid()"> Create </button>
+			</li>
+			<li>
+				<input id="l-action" type="number" name="columns" placeholder="length">
+			</li>
+			<li>
+				<input id="w-action" type="number" name="rows" placeholder="width">
+			</li>	
+		</ul>
+		<div id="grid-container">
+			<table class="table-box">
+				<tbody id="grid">
+				</tbody>
+			</table>
+			<div class="tool-container">
+				<div>
+					Tool Kit <i class="fa fa-arrows" aria-hidden="true"></i>
+				</div>
+				<div class="tools">
+					<i class="fa fa-paint-brush" onclick="colorPalet()" aria-hidden="true">
+						<div class="brush-choices">
+							<i class="fa fa-square brush" value="#BF444C" aria-hidden="true"></i>
+							<i class="fa fa-square brush" value="#4A44BF" aria-hidden="true"></i>
+							<i class="fa fa-square brush" value="#5B5A68" aria-hidden="true"></i>
+							<i class="fa fa-square brush" value="#1D711B" aria-hidden="true"></i>
+							<i class="fa fa-square brush" value="#E8811A" aria-hidden="true"></i>
+							<i class="fa fa-square brush" value="#DCE81A" aria-hidden="true"></i>
+							<i class="fa fa-square brush" value="#E81AAD" aria-hidden="true"></i>
+							<i class="fa fa-square brush" value="#3D0A8A" aria-hidden="true"></i>
+						</div>
+					</i>
+					<i class="fa fa-eraser" onclick="eraseOn()" aria-hidden="true"></i>
+					<i class="fa fa-square-o" onclick="colorGrid()" aria-hidden="true">
+						<div class="background-choices">
+							<i class="fa fa-square table-bg" value="#fdfefe" aria-hidden="true"></i>
+							<i class="fa fa-square table-bg" value="#e8f6f3" aria-hidden="true"></i>
+							<i class="fa fa-square table-bg" value="#eaf2f8" aria-hidden="true"></i>
+							<i class="fa fa-square table-bg" value="#fdedec" aria-hidden="true"></i>
+							<i class="fa fa-square table-bg" value="#d7dbdd" aria-hidden="true"></i>
+							<i class="fa fa-square table-bg" value="#fdebd0" aria-hidden="true"></i>
+							<i class="fa fa-square table-bg" value="#f4ecf7" aria-hidden="true"></i>
+							<i class="fa fa-square table-bg" value="#fcf3cf" aria-hidden="true"></i>
+						</div>
+					</i>
+					<i class="fa fa-plus" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

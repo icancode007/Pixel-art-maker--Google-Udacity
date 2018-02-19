@@ -11,24 +11,33 @@
 		<script src="design.js"></script>
 	</head>
 	<body>
-		<h1 id="page-title">Pixel Art Maker<span class="animated"><i class="fa fa-paint-brush" aria-hidden="true"></i></span>
+		<h2 id="left"></h2><h1 id="page-title">Pixel Art Maker<span class="animated"><i class="fa fa-paint-brush" aria-hidden="true"></i></span>
 		</h1>
 		<ul id="inputs-list">
+			<li>
+				<button id="reseter" onclick="resetGrid()"> Reset </button>
+			</li>
 			<li>
 				<button id="creator" onclick="makeGrid()"> Create </button>
 			</li>
 			<li>
-				<input id="l-action" type="number" name="columns" placeholder="length">
+				<input id="l-action" type="number" name="columns" placeholder="length" min="1" max="40">
 			</li>
 			<li>
-				<input id="w-action" type="number" name="rows" placeholder="width">
+				<input id="w-action" type="number" name="rows" placeholder="width"  min="1" max="40">
 			</li>	
 		</ul>
 		<div id="grid-container">
+			<div class="containment" id="left-arrow">
+				<div id="dragItLeft"><i class="fa fa-angle-left"></i></div>
+			</div>
 			<table class="table-box">
 				<tbody id="grid">
 				</tbody>
 			</table>
+			<div class="containment" id="right-arrow">
+				<div id="dragItRight"><i class="fa fa-angle-right"></i></div>
+			</div>
 			<div class="tool-container">
 				<div>
 					Tool Kit <i class="fa fa-arrows" aria-hidden="true"></i>
@@ -46,7 +55,7 @@
 							<i class="fa fa-square brush" value="#3D0A8A" aria-hidden="true"></i>
 						</div>
 					</i>
-					<i class="fa fa-eraser" onclick="eraseOn()" aria-hidden="true"></i>
+					<i id='eraser' class="fa fa-eraser" onclick="eraseOn()" aria-hidden="true"></i>
 					<i class="fa fa-square-o" onclick="colorGrid()" aria-hidden="true">
 						<div class="background-choices">
 							<i class="fa fa-square table-bg" value="#fdfefe" aria-hidden="true"></i>
@@ -59,7 +68,18 @@
 							<i class="fa fa-square table-bg" value="#fcf3cf" aria-hidden="true"></i>
 						</div>
 					</i>
-					<i class="fa fa-plus" aria-hidden="true"></i>
+					<i class="fa fa-plus" aria-hidden="true" onclick="tdSizer()" id="lastI">
+						<table class="tool-kit-table">
+							<tbody>
+								<tr>
+									<td class="tdSizes" value="11">Xs</td>
+									<td class="tdSizes"  value="18">Sm</td>
+									<td class="tdSizes"   value="25">Md</td>
+									<td class="tdSizes"  value="32">Lg</td>
+								</tr>
+							</tbody>
+						</table>
+					</i>
 				</div>
 			</div>
 		</div>

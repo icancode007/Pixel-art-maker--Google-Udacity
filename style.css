@@ -1,5 +1,9 @@
 body{
 	font-family: 'Freckle Face', cursive;
+	margin: 0; 
+	height: 100%; 
+	overflow: hidden
+	width:100%;
 } 
 
 #page-title{
@@ -34,8 +38,9 @@ body{
 }
 
 input{
+	
 	height: 50px;
-	width: 131px;
+	width: 138px;
 	border-radius: 10px;
 	text-align: center;
 	font-family: inherit;
@@ -47,27 +52,86 @@ input{
 	opacity: 0.7;
 }
 input:focus{
-opacity:1;
+	opacity:1;
+}
+#reseter{
+	color:antiquewhite;
+	background-color:cadetblue;
+	margin-right:-50px;
+
 }
 #creator{
-	font-size: 20px;
-	width: 131px;
-	height: 50px;
-  border-radius: 4px;
-  font-family: inherit;
-	background-color:antiquewhite;
-	border-style:none;
 	color:cadetblue;
+	background-color:antiquewhite;
+}
+#creator,#reseter{
+	font-size: 20px;
+	width: 138px;
+	height: 50px;
+  	border-radius: 4px;
+  	font-family: inherit;
+	border-style:none;
 	transition: 0.2s;
-  transition-delay: 0.2s;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  	transition-delay: 0.2s;
+  	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 	cursor:pointer;
 }
-#creator:hover{
+#creator:hover, #reseter:hover{
 	opacity: .82;
 }
 input:focus,input:active, button:focus,button:active{
 	outline: none;
+}
+.grid-container{
+	display: flex;
+	justify-content:flex-start;
+	flex-wrap:nowrap;
+
+	}
+.containment:hover{
+	background-color: antiquewhite;
+}
+
+.containment{
+	flex-grow:0.01;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.containment i:hover{
+    animation: animated-arrow 1s ease-in-out infinite;
+}
+#left-arrow{
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+#right-arrow{
+	border-top-right-radius: 10px;	
+	border-bottom-right-radius: 10px;
+}
+#bottom-arrow{
+	border-bottom-left-radius: 10px;	
+	border-bottom-right-radius: 10px;
+}
+
+@keyframes animated-arrow{
+    from{
+        transform: translateX(0)
+    }
+    50%{
+        transform: translateX(6px);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+#dragItLeft i,#dragItRight i,#dragItDown i{
+	font-size: 41px;
+}
+#dragItDown{
+	display: flex;
+	justify-content: center;
 }
 #grid-container{
 	display: flex;
@@ -75,15 +139,11 @@ input:focus,input:active, button:focus,button:active{
 }
 table tbody tr td{
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-	width: 25px;
-	height: 25px;
 	margin-left: 5px;
 	margin-right:5px;
 }
 
 table tbody tr{
-	width: 25px;
-	height: 25px;
 	margin-left: 5px;
 	margin-right:5px;
 }
@@ -95,8 +155,8 @@ table tbody tr{
 	position: absolute;
 	box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.26);
 }
-.tool-container:hover{
-	cursor:move;
+.tool-container{
+	cursor: move;
 }
 .tools{
 	border-style:none;
@@ -112,15 +172,45 @@ table tbody tr{
 	margin-bottom: 8px;
 	margin-right: 2px;
 }
-.fa-paint-brush:hover,.fa-eraser:hover,.fa-square-o:hover{
+
+.fa-paint-brush:hover,.fa-square-o:hover,.fa-eraser:hover,.fa-plus:hover{
 	cursor:pointer;
+	font-size: 25px;
 }
-.brush-choices,.background-choices{
+
+.brush-choices,.background-choices,.tool-kit-table {
 	position: absolute;
 	display: flex;
 	margin-top: -29px;
 	margin-left: 28px;
-	border-radius: 10px;
-	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.26);
+	border-radius: 8px;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.6);
 	background-color:antiquewhite ;
+}
+.tool-kit-table tbody tr td{
+	background-color: #fff;
+	font-size: 18px;
+	font-family: 'Freckle Face', cursive;;
+	height:1em;
+	padding:3px;
+	border-radius:6px;
+}
+.tool-kit-table tbody tr td:hover{
+	opacity: 0.67;
+}
+.sm{
+	width: 18px;
+	height: 18px;
+}
+.sx{
+	width:11px;
+	height:11px; 
+}
+.md{
+	width: 25px;
+	height: 25px;
+}
+.lg{
+	width: 32px;
+	height: 32px;
 }

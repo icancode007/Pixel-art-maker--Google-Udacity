@@ -5,7 +5,10 @@ body{
 	overflow: hidden
 	width:100%;
 } 
-
+#grid-container{
+	width: 90%;
+	margin: 0 auto;
+}
 #page-title{
 	text-align: center; 
 	font-size: 60px;
@@ -86,6 +89,8 @@ input:focus,input:active, button:focus,button:active{
 	display: flex;
 	justify-content:flex-start;
 	flex-wrap:nowrap;
+	border:2px solid #ccc; 
+	padding: 10px; 
 
 	}
 .containment:hover{
@@ -173,7 +178,7 @@ table tbody tr{
 	margin-right: 2px;
 }
 
-.fa-paint-brush:hover,.fa-square-o:hover,.fa-eraser:hover,.fa-plus:hover{
+#brush:hover,.fa-square-o:hover,.fa-eraser:hover,.fa-plus:hover{
 	cursor:pointer;
 	font-size: 25px;
 }
@@ -198,19 +203,22 @@ table tbody tr{
 .tool-kit-table tbody tr td:hover{
 	opacity: 0.67;
 }
-.sm{
+.size-sm{
 	width: 18px;
 	height: 18px;
 }
-.sx{
+.size-xs{
 	width:11px;
 	height:11px; 
 }
-.md{
+.size-md{
 	width: 25px;
 	height: 25px;
 }
-.lg{
+.size-lg{
 	width: 32px;
 	height: 32px;
 }
+/*.brush-cursor{*/
+/*	cursor:url('https://s3.amazonaws.com/imgendpoint2018/paint-brush.png'), auto;
+}*/

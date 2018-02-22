@@ -4,10 +4,14 @@ body{
 	height: 100%; 
 	overflow: hidden
 	width:100%;
+	background:url(wallpp.jpg);
+	background-size:cover;
+
 } 
 #grid-container{
 	width: 90%;
 	margin: 0 auto;
+	padding-bottom: 50px;
 }
 #page-title{
 	text-align: center; 
@@ -219,6 +223,9 @@ table tbody tr{
 	width: 32px;
 	height: 32px;
 }
-/*.brush-cursor{*/
-/*	cursor:url('https://s3.amazonaws.com/imgendpoint2018/paint-brush.png'), auto;
-}*/
+.brush-cursor{
+	cursor:url('https://s3.amazonaws.com/imgendpoint2018/paint-brush.png'), auto;
+}
+.eraser-cursor{
+	cursor:url('https://s3.amazonaws.com/imgendpoint2018/eraser1.png'), auto;
+}

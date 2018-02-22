@@ -1,7 +1,4 @@
-	
-
-
-//												<---- G R I D  T O O L S  A N D  F U N C T I O N A L I T Y ---->
+//							<---- G R I D  T O O L S  A N D  F U N C T I O N A L I T Y ---->
 let mdown = false; // M o u s e
 	
 let eraser = false; // E r a s e r  T o o l
@@ -25,14 +22,15 @@ let td = `<td class="rows ${gridTdSize}"></td>`
 
 	// G e t  G o  A c t i o n s
 $(document).ready(function(){
+		$('.table-box').addClass('brush-cursor');
 		$('.table-box').css('background-color',gridBG);
 		$('.tool-container',).draggable();
 		$('#dragItLeft').draggable(leftArrowProps);
 		$('#dragItRight').draggable(rightArrowProps);
-
 		colorChoice($('.brush'));
 		colorChoice($('.table-bg'));
 		ShowHideToggle(selectorsArr);	
+		whichTutorial();
 	});
 	// G r i d  A r e a 
 $('#creator').click(makeGrid);
@@ -40,15 +38,18 @@ $('#creator').click(makeGrid);
 function makeGrid(){
 	let l = Number($('#l-action').val());
 	let w = Number($('#w-action').val());
-	
-	$('#grid').append(("<tr class='columns'></tr>").repeat(l));//making use of each and repeat I avoid manually looping in the objs to add the elements in the dom
-	$('.columns').each(function(element){
-		$(this).append((td).repeat(w));//for every column add whatever integer of w we got from the client
-	});
-	
-	mouseHandler($('.rows'));
-	ShowHideToggle(['#creator'],selectorsArr);
-	tdSizeSelect($('.tdSizes'));
+	if( ((l>40 || l < 1)||(w>40 || w < 1)) ){
+		alert("Choose Values withing the real range of 1 to 40 and Make sure that your inputs are numbers not letters!");
+	}
+	else{
+		$('#grid').append(("<tr class='columns'></tr>").repeat(l));//making use of each and repeat I avoid manually looping in the objs to add the elements in the dom
+		$('.columns').each(function(element){
+			$(this).append((td).repeat(w));//for every column add whatever integer of w we got from the client
+		});
+		mouseHandler($('.rows'));
+		ShowHideToggle(['#creator'],selectorsArr);
+		tdSizeSelect($('.tdSizes'));
+	}	
 }
 	// T o o l  -  K i t  C o l o r  O p t i o n s 
 function colorChoice(arr){
@@ -137,7 +138,8 @@ function colorSqr(element){
 
 function colorPalet(){
 	eraser = false;
-	// $('.table-box').css({cursor:'url(https://s3.amazonaws.com/imgendpoint2018/paint-brush.png), auto'});
+	$('.table-box').removeClass('eraser-cursor');
+	$('.table-box').addClass('brush-cursor');
 	ShowHideToggle(['.background-choices','.tool-kit-table'],[],'.brush-choices');
 
 }
@@ -199,9 +201,13 @@ $(window).click(function(e){
 	// E r a s e r
 function eraseOn(){
 	eraser = !eraser;
-	// if(eraser) $('.table-box').css({cursor:'url(https://s3.amazonaws.com/imgendpoint2018/eraser1.png), auto'});
-	// else $('.table-box').css('cursor','default');
-	
+	if(eraser) {
+		$('.table-box').removeClass('brush-cursor');
+		$('.table-box').addClass('eraser-cursor');
+	}else{
+		$('.table-box').removeClass('eraser-cursor');
+		$('.table-box').addClass('brush-cursor');
+	}	
 }
 	// M o u s e  H a n d l e r s 
 function mouseHandler(element){

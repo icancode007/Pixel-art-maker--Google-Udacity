@@ -5,13 +5,30 @@
 		<title>Pixel Art Maker</title>
 		<link href="https://fonts.googleapis.com/css?family=Freckle+Face" rel="stylesheet">
 		<link href="style.css" rel="stylesheet">
+		<link href="modal.css" rel="stylesheet">
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 		<script src="https://use.fontawesome.com/f1156db02b.js"></script>
+		<script src="modal.js"></script>
 		<script src="design.js"></script>
 	</head>
 	<body>
-		<h2 id="left"></h2><h1 id="page-title">Pixel Art Maker<span class="animated"><i class="fa fa-paint-brush" aria-hidden="true"></i></span>
+		<div class="modal-container">
+			<div class="modal-content">
+				<i id="closer" class="fa fa-times" onclick="hideModal()"></i>
+				<h2 class="title">Quick Helper</h2>
+				<div class="video-tutorial">
+					<div id="previous"><i class="fa fa-arrow-circle-left"></i></div>
+					<div class="media">
+						<img id="player" align="middle">	
+					</div>
+					<div id="next"><i class="fa fa-arrow-circle-right"></i></div>
+				</div>
+				<div class="tutorial-Caption"> <p id="caption">Some Caption</p></div>
+			</div>
+		</div>
+		<i id="question" class="fa fa-question"></i>
+		<h1 id="page-title">Pixel Art Maker<span class="animated"><i class="fa fa-paint-brush" aria-hidden="true"></i></span>
 		</h1>
 		<ul id="inputs-list">
 			<li>

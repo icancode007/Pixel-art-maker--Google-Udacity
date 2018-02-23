@@ -114,10 +114,12 @@ input:focus,input:active, button:focus,button:active{
 #left-arrow{
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
+	cursor: grab;
 }
 #right-arrow{
 	border-top-right-radius: 10px;	
 	border-bottom-right-radius: 10px;
+	cursor: grab;
 }
 #bottom-arrow{
 	border-bottom-left-radius: 10px;	

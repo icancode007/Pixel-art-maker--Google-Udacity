@@ -11,8 +11,8 @@ let prevX=-1; // D r a g  D i r e c t i o n
 
 let selectorsArr = ['.tool-kit-table','.brush-choices','.background-choices','.tool-container','#dragItLeft','#dragItRight','.bottomContainment','#reseter'];// O n l o a d  H i d d e n  E l e m e n t s
 
-let leftArrowProps = { axis:'x',drag:rightOrLeft, distance:20, revert:true, containment:'#grid-container',scroll:false};
-let rightArrowProps = {axis:'x', drag:rightOrLeft, distance:20, revert:true, containment:'#grid-container',scroll:false};
+let leftArrowProps = { axis:'x',drag:rightOrLeft, distance:20, revert:true, containment:'#grid-container',scroll:false,cursor:'grabing'};
+let rightArrowProps = {axis:'x', drag:rightOrLeft, distance:20, revert:true, containment:'#grid-container',scroll:false,cursor:'grabing'};
 	
 let wicharrow; // R i g h t D r a g  o r  L e f t D r a g
 
@@ -145,15 +145,11 @@ function colorPalet(){
 }
 
 function colorGrid(){
-	eraser=false;
-	// $('.table-box').css({cursor:'url(https://s3.amazonaws.com/imgendpoint2018/paint-brush.png), auto'});
 	ShowHideToggle(['.brush-choices','.tool-kit-table'],[],'.background-choices');
 
 }
 
 function tdSizer(){
-	eraser=false;
-	// $('.table-box').addClass('brush-cursor');
 	ShowHideToggle(['.brush-choices','.background-choices'],[],'.tool-kit-table');
 }
 

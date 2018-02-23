@@ -47,6 +47,7 @@
 #next:hover,#previous:hover{
 	background-color: antiquewhite;
 	opacity:0.2;
+	cursor: pointer;
 }
 #next i{
 	font-size:45px;

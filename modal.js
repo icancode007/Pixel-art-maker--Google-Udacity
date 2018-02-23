@@ -23,6 +23,7 @@ function whichTutorial(){
 			ind -= 1;
 			gifPlayer.removeClass('gif'+[prevInd])
 			gifPlayer.addClass('gif'+[ind]);
+			$('#caption').text(gifCaption[ind]);
 		}
 		else {
 			ind = 3;
